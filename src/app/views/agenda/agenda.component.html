@@ -1,0 +1,271 @@
+<style>
+    input[type=button] {
+    background-color: #9124a3;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 35px;
+  }
+</style>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-rose card-header-icon">
+                    
+                    <div class="card-icon">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <h4 class="card-title">Agenda</h4>
+                  </div>
+                <div class="card-footer justify-content-left"><br>
+                    <input type="button" (click)="reset();open(content3)"value="Cadastrar nova">
+                </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                    <thead>
+                                        <tr>
+                                          <th class="text-center">{{ tableData1.headerRow[0] }}</th>
+                                          <th class="text-center">{{ tableData1.headerRow[1] }}</th>
+                                          <th class="text-center">{{ tableData1.headerRow[2] }}</th>
+                                          <th class="text-center">{{ tableData1.headerRow[3] }}</th>
+                                          <th class="text-center">{{ tableData1.headerRow[4] }}</th>
+                                          <th class="text-center">{{ tableData1.headerRow[5] }}</th>
+                                          <th class="text-center">{{ tableData1.headerRow[6] }}</th>
+                                          <th class="text-center">{{ tableData1.headerRow[7] }}</th>
+                                          <th class="text-right">{{ tableData1.headerRow[8] }}</th>
+                                        </tr>
+                                    </thead>
+                                  <tbody>
+                                      <tr *ngFor="let row of tableData1.dataRows">
+                                          <td class="text-center">{{row[0]}}</td>
+                                          <td class="text-center">{{row[1]}}</td>
+                                          <td class="text-center">{{row[2]}}</td>
+                                          <td class="text-center">{{row[3]}}</td>
+                                          <td class="text-center">{{row[4]}}</td>
+                                          <td class="text-center">{{row[5]}}</td>
+                                          <td class="text-center">{{row[6]}}</td>
+                                          <td class="text-center">{{row[7]}}</td>
+                                          <td class="td-actions text-right">
+                                              <button type="button" (click)="open(content3) " class="btn btn-success {{row[8]}}">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button type="button" (click)="desativar()" class="btn btn-danger {{row[8]}}">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                            <button type="button" (click)="prioridade()" class="btn btn-success {{row[8]}}">
+                                                <i class="material-icons">lock</i>
+                                            </button>
+                                            <button type="button" (click)="deletesweetalert()" class="btn btn-danger {{row[8]}}">
+                                                <i class="material-icons">restaurant</i>
+                                            </button>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #content3 let-modal>
+    <div class="modal-body">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-icon">
+              
+              <div class="card-icon">
+                <i class="material-icons">assignment</i>
+              </div>
+              <h4 class="card-title">Cadastro de profissionais</h4>
+            </div>
+              <div class="card-body">
+                  <form>
+                      <div class="row">
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Nome">
+                          </div>
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Sobrenome">
+                          </div>
+                      </div><br>
+                      <div class="row">
+                        <div class="col">
+                            <input type="email" class="form-control" placeholder="E-mail">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="CPF" maxlength="11">
+                        </div>
+                      </div><br>
+                      <input type="button" (click)="modal.close();open(contentpasso2)" value="Próximo" style="margin-left: 80%;">
+                  </form><br>
+                  <div class="progress" style="height: 15px;">
+                    <div class="progress-bar" role="progressbar" style="width: 25%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">25%</div>
+                </div>
+              </div>
+          </div>
+    </div>
+  </ng-template>
+
+  <ng-template #contentpasso2 let-modal>
+    <div class="modal-body">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-icon">
+              
+              <div class="card-icon">
+                <i class="material-icons">assignment</i>
+              </div>
+              <h4 class="card-title">Formação</h4>
+            </div>
+              <div class="card-body">
+                  <form>
+                      <div class="row">
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Instituição">
+                          </div>
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Curso">
+                          </div>
+                      </div><br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Descrição">
+                        </div>
+                        <div class="col">
+                            <label>Ativo</label><br>
+                            <input type="checkbox" placeholder="Ativo">
+                        </div><br><br>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Data de inicio do curso">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Data de termino do curso">
+                        </div>
+                    </div><br>
+                    <input type="button" (click)="modal.close();open(content3)" value="Voltar">
+                    <input type="button" (click)="modal.close();open(contentpasso3)" value="Próximo" style="margin-left: 65%;">  
+                  </form><br>
+                  <div class="progress" style="height: 15px;">
+                    <div class="progress-bar" role="progressbar" style="width: 50%;" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">50%</div>
+                </div>
+              </div>
+          </div>
+    </div>
+  </ng-template>
+
+  <ng-template #contentpasso3 let-modal>
+    <div class="modal-body">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-icon">
+              
+              <div class="card-icon">
+                <i class="material-icons">assignment</i>
+              </div>
+              <h4 class="card-title">Endereço</h4>
+            </div>
+              <div class="card-body">
+                  <form>
+                      <div class="row">
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="CEP" id="CEP">
+                          </div>
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="UF" id="UF">
+                          </div>
+                      </div><br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Cidade" id="cidade">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Bairro" id="bairro">
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Rua" id="rua">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control" placeholder="Número" id="nn">
+                        </div>
+                    </div><br>
+                    <input type="button" (click)="modal.close();open(contentpasso2)" value="Voltar">
+                    <input type="button" (click)="modal.close();open(contentpasso4)" value="Pular" style="margin-left: 25%;">
+                    <input type="button" (click)="modal.close();open(contentpasso4)" value="Próximo" style="margin-left: 25%;">
+                  </form><br>
+                  <div class="progress" style="height: 15px;">
+                    <div class="progress-bar" role="progressbar" style="width: 75%;" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">75%</div>
+                </div>
+              </div>
+          </div>
+    </div>
+  </ng-template>
+
+
+  <ng-template #contentpasso4 let-modal>
+    <div class="modal-body">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-icon">
+              
+              <div class="card-icon">
+                <i class="material-icons">assignment</i>
+              </div>
+              <h4 class="card-title">Endereço</h4>
+            </div>
+              <div class="card-body">
+                  <form>
+                      <div class="row">
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Telefone-fixo">
+                          </div>
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Celular">
+                          </div>
+                      </div><br>
+                    <div class="row">
+                        <div class="col">
+                            <label>Add número</label><br>
+                            <span class="material-icons" (click)="addtelefone()">
+                                add_circle_outline
+                            </span>
+                        </div>
+                    </div><br> 
+                      <!--<input type="button" id="teste" (click)="addtelefone()" value="tentar">!-->
+                    <div class="row">
+                        <div class="col">
+                            <input type="hidden" class="form-control" placeholder="Add número..." id="numero1" name="numero1">
+                        </div>
+                        <div class="col">
+                            <input type="hidden" class="form-control" placeholder="Add número..." id="numero2" name="numero2">
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <div class="col">
+                            <input type="hidden" class="form-control" placeholder="Add número..." id="numero3" name="numero3">
+                        </div>
+                        <div class="col">
+                            <input type="hidden" class="form-control" placeholder="Add número..." id="numero4" name="numero4">
+                        </div>
+                    </div><br>
+                    <input type="button" (click)="modal.close();reset();open(contentpasso3)" value="Voltar">
+                    <input type="button" (click)="modal.close();success()" value="Finalizar" style="margin-left: 63%;">
+                  </form><br>
+                  <div class="progress" style="height: 15px;">
+                    <div class="progress-bar" role="progressbar" style="width: 100%;" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">100%</div>
+                </div>
+              </div>
+          </div>
+    </div>
+  </ng-template>
+  <pre>{{ closeResult }}</pre>

@@ -1,0 +1,139 @@
+<style>
+    input[type=button] {
+    background-color: #9124a3;
+    border: none;
+    color: white;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 35px;
+  }
+</style>
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                  <div class="card-header card-header-rose card-header-icon">
+                    
+                    <div class="card-icon">
+                      <i class="material-icons">assignment</i>
+                    </div>
+                    <h4 class="card-title">Tipos de serviço</h4>
+                  </div>
+                <div class="card-footer justify-content-left"><br>
+                    <input type="button" (click)="open(content) "value="Criar novo">
+                </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table">
+                                    <thead>
+                                        <tr>
+                                          <th class="text-center">{{ tableData1.headerRow[0] }}</th>
+                                          <th>{{ tableData1.headerRow[1] }}</th>
+                                          <th>{{ tableData1.headerRow[2] }}</th>
+                                          <th>{{ tableData1.headerRow[3] }}</th>
+                                          <th>{{ tableData1.headerRow[4] }}</th>
+                                          <th>{{ tableData1.headerRow[5] }}</th>
+                                          <th class="text-right">{{ tableData1.headerRow[6] }}</th>
+                                        </tr>
+                                    </thead>
+                                  <tbody>
+                                      <tr *ngFor="let row of tableData1.dataRows">
+                                          <td class="text-center">{{row[0]}}</td>
+                                          <td>{{row[1]}}</td>
+                                          <td>{{row[2]}}</td>
+                                          <td>{{row[3]}}</td>
+                                          <td>{{row[4]}}</td>
+                                          <td>{{row[5]}}</td>
+                                          <td class="td-actions text-right">
+                                              <button type="button" (click)="open(content2) " class="btn btn-success {{row[6]}}">
+                                                  <i class="material-icons">edit</i>
+                                              </button>
+                                              <button type="button" (click)="deletesweetalert()" class="btn btn-danger {{row[6]}}">
+                                                  <i class="material-icons">close</i>
+                                              </button>
+                                          </td>
+                                      </tr>
+                                  </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<ng-template #content let-modal>
+    <div class="modal-body">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-icon">
+              
+              <div class="card-icon">
+                <i class="material-icons">assignment</i>
+              </div>
+              <h4 class="card-title">Cadastro de tipos de serviço</h4>
+            </div>
+              <div class="card-body">
+                  <form>
+                      <div class="row">
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Nome">
+                          </div>
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Descrição">
+                          </div>
+                      </div><br>
+                      <div class="row">
+                          <div class="col">
+                              <label>Ativo</label><br>
+                              <input type="checkbox" placeholder="Ativo">
+                              
+                          </div>
+                      </div><br>
+                      <input type="button" value="Cadastrar">
+                  </form>
+              </div>
+          </div>
+    </div>
+  </ng-template>
+
+  <ng-template #content2 let-modal>
+    <div class="modal-body">
+        <div class="card">
+            <div class="card-header card-header-rose card-header-icon">
+              
+              <div class="card-icon">
+                <i class="material-icons">assignment</i>
+              </div>
+              <h4 class="card-title">Edição de tipos de serviço</h4>
+            </div>
+              <div class="card-body">
+                  <form>
+                      <div class="row">
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Nome">
+                          </div>
+                          <div class="col">
+                              <input type="text" class="form-control" placeholder="Descrição">
+                          </div>
+                      </div><br>
+                      <div class="row">
+                          <div class="col">
+                              <label>Ativo</label><br>
+                              <input type="checkbox" placeholder="Ativo">
+                              
+                          </div>
+                      </div><br>
+                      <input type="button" value="Cadastrar">
+                  </form>
+              </div>
+          </div>
+    </div>
+  </ng-template>
+
+  <pre>{{ closeResult }}</pre>

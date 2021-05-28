@@ -1,0 +1,45 @@
+<style>
+    input[type=button], input[type=submit], input[type=reset]  {
+    background-color: #9124a3;
+    border: none;
+    
+    color: white;
+    padding: 15px 80px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    font-size: 13px;
+    border-radius: 35px;
+  }
+</style>
+<div class="wrapper wrapper-full-page">
+  <div class="page-header login-page header-filter" filter-color="black" style="background-image: url('./assets/img/login2.png'); background-size: cover; background-position: top center;">
+  <!--<div class="page-header login-page header-filter" style="background-color:#ffffff; background-size: cover; background-position: top center;">!-->
+    <!--   you can change the color of the filter page using: data-color="blue | purple | green | orange | red | rose " -->
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+        <br>
+        <br>
+          <form class="form" method="" action="">
+            <div class="card card-login">
+              <br>    
+              <h4 class="card-title text-center">Enviamos a recuperação de senha pelo e-mail</h4>
+              <div class="card-body "><br>
+                <p class="card-description text-center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obrigado!</p>  
+              </div><br>
+              <div class="card-footer justify-content-center">
+                <a [routerLink]="['/pages/login']">Fazer login novamente</a>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <footer class="footer ">
+      <div class="container">
+      </div>
+    </footer>
+  </div>
+</div>
