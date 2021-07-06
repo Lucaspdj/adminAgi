@@ -147,33 +147,21 @@ export class AgendaComponent implements OnInit {
     
     constructor(private modalService: NgbModal) {}
 
-    open(content) {
+    openModal(content) {
       this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((result) => {
         this.closeResult = ``;
       });
     }
 
-    addtelefone(){
-        if (cont == 0){
-          (<HTMLInputElement>document.getElementById('numero1')).type = 'text';
-          cont = (cont + 1);
-        }
-        else if (cont == 1){
-          (<HTMLInputElement>document.getElementById('numero2')).type = 'text';
-          cont = (cont + cont);
-        }
-        else if (cont == 2){
-          (<HTMLInputElement>document.getElementById('numero3')).type = 'text';
-          cont = (cont + 1);
-        }
-        else if (cont == 3){
-          (<HTMLInputElement>document.getElementById('numero4')).type = 'text';
-          cont = (cont + 1);
+    funcmodal(variavel){
+        if ((<HTMLInputElement>document.getElementById('tipo')).value = '1'){
+          this.openModal(variavel)
         }
     }
 
     reset(){
       cont = 0;
     }
+
 
   }
